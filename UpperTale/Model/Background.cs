@@ -2,7 +2,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Something.Model;
 
-public class Background
+public abstract class Background : IDrawable
 {
-    private readonly Texture2D _texture;
+    protected Texture2D Texture;
+    
+    public void Draw()
+    {
+        Globals.SpriteBatch.Draw(Texture, Vector2.Zero, Color.White);
+    }
+
+    public void Update()
+    {
+    }
 }

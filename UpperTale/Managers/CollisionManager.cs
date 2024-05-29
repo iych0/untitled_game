@@ -7,7 +7,6 @@ public class CollisionManager
 {
     private Rectangle _rectangle;
     
-    
     private void CheckCollision()
     {
         _rectangle.Intersects(_rectangle);

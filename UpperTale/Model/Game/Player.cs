@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Something.Managers;
+using Something.Model.Interfaces;
 
 namespace Something.Model.Game;
 
-public class Player : IDrawable
+public class Player : IDrawable, IEntity
 {
     private Vector2 _position;
     private static readonly Texture2D Texture = Globals.Content.Load<Texture2D>("sprites/fox_running");
