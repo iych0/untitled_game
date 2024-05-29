@@ -1,9 +1,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Something.Model.Menu;
+namespace Something.Model.Options;
 
-public class MenuBackground : IDrawable
+public class OptionsBackground : IDrawable
 {
     private Texture2D _texture = Globals.Content.Load<Texture2D>("Textures/Backgrounds/MenuBackground");
 

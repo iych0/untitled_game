@@ -1,10 +1,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Something.Managers;
-using Something.Model.Interfaces;
-using IDrawable = Something.Model.Interfaces.IDrawable;
 
-namespace Something.Model;
+namespace Something.Model.Game;
 
 public class Player : IDrawable
 {

@@ -2,13 +2,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Something.Generators;
 using Something.Model.Interfaces;
-using IDrawable = Something.Model.Interfaces.IDrawable;
 
 namespace Something.Model.Game;
 
 public class Map : IDrawable, ICollidable
 {
-    private readonly Texture2D _texture2D = Globals.Content.Load<Texture2D>("textures/Scalemap");
+    private readonly Texture2D _texture2D = Globals.Content.Load<Texture2D>("Textures/Maps/white_square");
     
     //private readonly Texture2D _floorTexture = Globals.Content.Load<Texture2D>("textures/map_floor");
     //private readonly Texture2D _wallTexture = Globals.Content.Load<Texture2D>("textures/map_wall");
@@ -35,7 +34,7 @@ public class Map : IDrawable, ICollidable
                 new Vector2(x * _tileSize, y * _tileSize), Color.White);
         }*/
         
-        Globals.SpriteBatch.Draw(_texture2D, Vector2.Zero, 
+        Globals.SpriteBatch.Draw(_texture2D, new Vector2(200, 100), 
             null,
             Color.White, 0f, Vector2.One, 1f, SpriteEffects.None, 0f);
     }

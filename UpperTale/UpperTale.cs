@@ -34,7 +34,7 @@ public class UpperTale : Game
 
         _gameManager = new GameManager();
         _gameManager.LoadScreens();
-        _gameManager.InitMenu();
+        _gameManager.InitGameFromMenuScreen();
 
         base.Initialize();
     }
@@ -47,10 +47,6 @@ public class UpperTale : Game
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-            Keyboard.GetState().IsKeyDown(Keys.Escape))
-            Exit();
-
         Globals.Update(gameTime);
         _gameManager.Update();
 

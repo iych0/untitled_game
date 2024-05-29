@@ -6,7 +6,7 @@ using Something.Model.Enums;
 
 namespace Something;
 
-public static class Globals
+public sealed class Globals
 {
     public static float TotalSeconds { get; private set; }
     public static ContentManager Content { get; set; }

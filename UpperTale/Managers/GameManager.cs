@@ -5,8 +5,8 @@ namespace Something.Managers;
 
 public class GameManager
 {
-    private Dictionary<string, Screen> _screens;
-    private Screen _currentScreen;
+    private static Dictionary<string, Screen> _screens;
+    private static Screen _currentScreen;
     
 
     public void LoadScreens()
@@ -14,11 +14,12 @@ public class GameManager
         _screens = new Dictionary<string, Screen>
         {
             { "MenuScreen", new MenuScreen() },
-            { "GameScreen", new GameScreen() }
+            { "GameScreen", new GameScreen() },
+            { "OptionsScreen", new OptionsScreen() }
         };
     }
     
-    public void InitMenu()
+    public void InitGameFromMenuScreen()
     {
         _currentScreen = _screens["MenuScreen"];
         _currentScreen.Initialize();
@@ -35,7 +36,7 @@ public class GameManager
         _currentScreen.DrawEntities();
     }
     
-    public void ChangeScreen(string screenName)
+    public static void ChangeScreen(string screenName)
     {
         _currentScreen = _screens[screenName];
         _currentScreen.Initialize();

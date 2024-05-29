@@ -7,7 +7,8 @@ public static class InputManager
 {
     public static Vector2 Direction { get; private set; } = Vector2.Zero;
     public static bool Moving => Direction != Vector2.Zero;
-    public static bool Select => Keyboard.GetState().IsKeyDown(Keys.Space);
+    public static bool Action => Keyboard.GetState().IsKeyDown(Keys.Space);
+    public static bool Escape => Keyboard.GetState().IsKeyDown(Keys.Escape);
 
     public static void Update()
     {

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using IDrawable = Something.Model.Interfaces.IDrawable;
 using Something.Extension;
 using Something.Managers;
 using Something.Model.Enums;
@@ -11,10 +10,12 @@ public class MainMenu : IDrawable
 {
     private readonly List<MenuItem> _menuItems = new()
     {
-        new MenuItem("New Game", ),
-        new MenuItem("Continue"),
-        new MenuItem("Options"),
-        new MenuItem("Exit")
+        //TODO fix actions
+        new MenuItem("New Game", () => GameManager.ChangeScreen("GameScreen")),
+        new MenuItem("Continue", () => GameManager.ChangeScreen("GameScreen")),
+        new MenuItem("Options", () => GameManager.ChangeScreen("OptionsScreen")),
+        new MenuItem("Exit", () => GameManager.ChangeScreen("Exit")),
+        new MenuItem("no russian", () => GameManager.ChangeScreen("dont do it")),
     };
     private int _selectedItem;
     private readonly Vector2 _position = Globals.ScreenCenter - new Vector2(100, 100);
@@ -30,6 +31,8 @@ public class MainMenu : IDrawable
 
     public void Update()
     {
+        if (InputManager.Action) _menuItems[_selectedItem].Action();
+        if (InputManager.Escape) GameManager.ChangeScreen("MenuScreen");
         if (InputManager.Moving && InputManager.Direction.X == 0)
         {
             // ReSharper disable once CompareOfFloatsByEqualityOperator

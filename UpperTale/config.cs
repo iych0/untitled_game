@@ -11,6 +11,9 @@ public static class Config
     public const int MAP_TILES_WIDTH = 10;
     public const int MAP_TILES_HEIGTH = 10;
     public const int TILE_SIZE = 64;
+
+    public const int MAP_PLAYABLE_ZONE_WIDTH = 800;
+    public const int MAP_PLAYABLE_ZONE_HEIGHT = 800;
     
     //Player config
     public const int PLAYER_SPEED = 200;
