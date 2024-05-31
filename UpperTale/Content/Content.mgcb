@@ -32,6 +32,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/fox_running_spritesheet.png;Sprites/fox_running.png
 
+#begin Textures/Backgrounds/IslandBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Backgrounds/IslandBackground.png
+
 #begin Textures/Backgrounds/MenuBackground.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -44,7 +56,7 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Backgrounds/MenuBackground.png
 
-#begin Textures/Backgrounds/scalemap.png
+#begin Textures/Maps/map_island.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -54,17 +66,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Backgrounds/scalemap.png;Textures/Backgrounds/GameBackground.png
-
-#begin Textures/Maps/white_square.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/Maps/white_square.png
+/build:Textures/Maps/map_island.png;Textures/Maps/IslandMap_1.png
 

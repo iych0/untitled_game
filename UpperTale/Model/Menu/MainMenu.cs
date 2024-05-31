@@ -1,13 +1,15 @@
+using System;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+using System.Timers;
 using Something.Extension;
 using Something.Managers;
-using Something.Model.Enums;
 
 namespace Something.Model.Menu;
 
 public class MainMenu : IDrawable
 {
+    private readonly Timer _buttonCooldown = new(100);
+    
     private readonly List<MenuItem> _menuItems = new()
     {
         //TODO fix actions
@@ -20,6 +22,12 @@ public class MainMenu : IDrawable
     private int _selectedItem;
     private readonly Vector2 _position = Globals.ScreenCenter - new Vector2(100, 100);
 
+    
+    public MainMenu()
+    {
+        _buttonCooldown.Elapsed += (_, _) => _buttonCooldown.Stop();
+    }
+    
     public void Draw()
     {
         for (int i = 0; i < _menuItems.Count; i++)
@@ -31,12 +39,13 @@ public class MainMenu : IDrawable
 
     public void Update()
     {
+        if (_buttonCooldown.Enabled) return;
         if (InputManager.Action) _menuItems[_selectedItem].Action();
-        if (InputManager.Escape) GameManager.ChangeScreen("MenuScreen");
         if (InputManager.Moving && InputManager.Direction.X == 0)
         {
             // ReSharper disable once CompareOfFloatsByEqualityOperator
             _selectedItem += InputManager.Direction.Y == -1 ? -1 : 1;
+            _buttonCooldown.Start();
         }
 
         _selectedItem %= _menuItems.Count;

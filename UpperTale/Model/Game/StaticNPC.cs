@@ -1,9 +1,12 @@
+
 using Something.Model.Interfaces;
 
 namespace Something.Model.Game;
 
-public class StaticNPC : IDrawable, IEntity
+public class StaticNpc : IDrawable, IEntity
 {
+    Vector2 Position;
+    Texture2D Texture;   
     public void Draw()
     {
         throw new System.NotImplementedException();

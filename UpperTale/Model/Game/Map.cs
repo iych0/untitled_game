@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework.Graphics;
 using Something.Generators;
 using Something.Model.Interfaces;
 
@@ -6,7 +5,7 @@ namespace Something.Model.Game;
 
 public class Map : IDrawable, ICollidable
 {
-    private readonly Texture2D _texture2D = Globals.Content.Load<Texture2D>("Textures/Maps/white_square");
+    private readonly Texture2D _texture2D = Globals.Content.Load<Texture2D>("Textures/Maps/IslandMap_1");
     
     //private readonly Texture2D _floorTexture = Globals.Content.Load<Texture2D>("textures/map_floor");
     //private readonly Texture2D _wallTexture = Globals.Content.Load<Texture2D>("textures/map_wall");

@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework.Graphics;
 using Something.Managers;
 using Something.Model.Interfaces;
 
@@ -24,6 +23,7 @@ public class Player : IDrawable, IEntity
 
     public void Update()
     {
+        if (InputManager.Escape) GameManager.ChangeScreen("OptionsScreen");
         if (InputManager.Moving)
         {
             _position += Vector2.Normalize(InputManager.Direction) * MovementSpeed * Globals.TotalSeconds;

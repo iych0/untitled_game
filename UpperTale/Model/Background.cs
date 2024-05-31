@@ -1,8 +1,6 @@
-using Microsoft.Xna.Framework.Graphics;
-
 namespace Something.Model;
 
-public abstract class Background : IDrawable
+public class Background : IDrawable
 {
     protected Texture2D Texture;
     

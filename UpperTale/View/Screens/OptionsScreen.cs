@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Something.Model.Interfaces;
 
 namespace Something.View.Screens;
 
