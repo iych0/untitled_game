@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Something.Interfaces;
+using Something.Model.Game;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace Something.Managers;
@@ -27,7 +28,8 @@ public class CollisionManager
         foreach (var collidable in Collidables)
         {
             var collisions = _quadtree.Retrieve(new List<ICollidable>(), collidable);
-            foreach (var collision in collisions.Where(collision => collision != collidable && collision.Hitbox.Intersects(collidable.Hitbox)))
+            foreach (var collision in collisions.Where(
+                         collision => collision != collidable && collision.Hitbox.Intersects(collidable.Hitbox)))
             {
                 collidable.OnCollision(collision);
             }

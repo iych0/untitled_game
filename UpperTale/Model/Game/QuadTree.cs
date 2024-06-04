@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using Something.Interfaces;
 
-namespace Something.Managers;
+namespace Something.Model.Game;
 
 public class QuadTree
 {
-    private const int MaxObjects = 10;
-    private const int MaxLevels = 5;
+    private const int MaxObjects = Config.QT_MAX_OBJECTS;
+    private const int MaxLevels = Config.QT_MAX_LEVELS;
 
     private readonly int _level;
     private readonly List<ICollidable> _objects;
@@ -25,7 +25,7 @@ public class QuadTree
     {
         _objects.Clear();
 
-        for (int i = 0; i < _nodes.Length; i++)
+        for (var i = 0; i < _nodes.Length; i++)
         {
             if (_nodes[i] == null) continue;
             _nodes[i].Clear();
@@ -48,7 +48,7 @@ public class QuadTree
 
     private int GetIndex(ICollidable pRect)
     {
-        int index = -1;
+        var index = -1;
         double verticalMidpoint = _bounds.X + _bounds.Width / 2;
         double horizontalMidpoint = _bounds.Y + _bounds.Height / 2;
 

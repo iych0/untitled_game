@@ -18,4 +18,8 @@ public static class Config
     //Player config
     public const int PLAYER_SPEED = 200;
     public const float PLAYER_SIZE = 1f;
+    
+    //QuadTree config
+    public const int QT_MAX_OBJECTS = 25;
+    public const int QT_MAX_LEVELS = 5;
 }

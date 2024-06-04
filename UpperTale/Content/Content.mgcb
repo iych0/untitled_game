@@ -1,4 +1,4 @@
-   
+
 #----------------------------- Global Properties ----------------------------#
 
 /outputDir:bin/$(Platform)
@@ -19,6 +19,18 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:Fonts/File.spritefont;Fonts/rfont.spritefont
+
+#begin Helpers/red_texture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Helpers/red_texture.png
 
 #begin Sprites/fox_running_spritesheet.png
 /importer:TextureImporter
@@ -56,7 +68,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/NPCs/Sprite-0001.png;Sprites/NPCs/Truffle_test.png
 
-#begin Sprites/Player/witch_spritesheet.png
+#begin Sprites/Player/witch.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -66,7 +78,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/Player/witch_spritesheet.png
+/build:Sprites/Player/witch.png
 
 #begin Textures/Backgrounds/IslandBackground.png
 /importer:TextureImporter

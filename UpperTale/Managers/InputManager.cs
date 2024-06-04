@@ -9,6 +9,7 @@ public static class InputManager
     public static bool Moving => Direction != Vector2.Zero;
     public static bool Action => Keyboard.GetState().IsKeyDown(Keys.Space);
     public static bool Escape => Keyboard.GetState().IsKeyDown(Keys.Escape);
+    public static bool Shift => Keyboard.GetState().IsKeyDown(Keys.LeftShift);
 
     public static void Update()
     {

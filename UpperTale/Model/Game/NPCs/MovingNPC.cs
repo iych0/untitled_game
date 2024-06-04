@@ -1,6 +1,6 @@
 using Something.Interfaces;
 
-namespace Something.Model.Game;
+namespace Something.Model.Game.NPCs;
 
 public class MovingNpc : IDrawable, IEntity
 {
