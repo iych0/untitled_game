@@ -17,5 +17,5 @@ public static class Config
     
     //Player config
     public const int PLAYER_SPEED = 200;
-    public const float PLAYER_SIZE = 2f;
+    public const float PLAYER_SIZE = 1f;
 }

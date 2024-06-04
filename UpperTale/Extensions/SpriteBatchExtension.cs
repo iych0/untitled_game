@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework.Graphics;
-
 namespace Something.Extension;
 
 public static class SpriteBatchExtension

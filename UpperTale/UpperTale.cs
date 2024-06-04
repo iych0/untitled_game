@@ -33,8 +33,8 @@ public class UpperTale : Game
         Globals.Content = Content;
 
         _gameManager = new GameManager();
-        _gameManager.LoadScreens();
-        _gameManager.InitGameFromMenuScreen();
+        GameManager.LoadScreens();
+        GameManager.InitGameFromMenuScreen();
 
         base.Initialize();
     }
@@ -48,7 +48,7 @@ public class UpperTale : Game
     protected override void Update(GameTime gameTime)
     {
         Globals.Update(gameTime);
-        _gameManager.Update();
+        GameManager.Update();
 
         base.Update(gameTime);
     }
@@ -65,7 +65,7 @@ public class UpperTale : Game
         GraphicsDevice.Clear(Color.Beige);
         
         _spriteBatch.Begin(transformMatrix: _transformMatrix);
-        _gameManager.Draw();
+        GameManager.Draw();
         _spriteBatch.End();
         
         base.Draw(gameTime);

@@ -1,4 +1,4 @@
-namespace Something.Model.Enums;
+namespace Something.Enums;
 
 public enum PlayerStatus
 {

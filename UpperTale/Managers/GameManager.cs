@@ -7,9 +7,12 @@ public class GameManager
 {
     private static Dictionary<string, Screen> _screens;
     private static Screen _currentScreen;
+
+    private static readonly CollisionManager CollisionManager =
+        new(new Rectangle(Point.Zero, new Point(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT)));
     
 
-    public void LoadScreens()
+    public static void LoadScreens()
     {
         _screens = new Dictionary<string, Screen>
         {
@@ -19,19 +22,20 @@ public class GameManager
         };
     }
     
-    public void InitGameFromMenuScreen()
+    public static void InitGameFromMenuScreen()
     {
         _currentScreen = _screens["MenuScreen"];
         _currentScreen.Initialize();
     }
 
-    public void Update()
+    public static void Update()
     {
         InputManager.Update();
+        CollisionManager.CheckCollision();
         _currentScreen.UpdateEntities();
     }
 
-    public void Draw()
+    public static void Draw()
     {
         _currentScreen.DrawEntities();
     }

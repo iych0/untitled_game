@@ -1,6 +1,3 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
 namespace Something.Model.Options;
 
 public class OptionsBackground : IDrawable

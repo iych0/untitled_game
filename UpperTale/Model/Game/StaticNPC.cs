@@ -1,18 +1,22 @@
-
-using Something.Model.Interfaces;
+using Something.Interfaces;
 
 namespace Something.Model.Game;
 
-public class StaticNpc : IDrawable, IEntity
+public abstract class StaticNpc : IEntity, IDrawable
 {
-    Vector2 Position;
-    Texture2D Texture;   
+    protected Vector2 Position;
+    protected Texture2D Texture;
+
     public void Draw()
     {
-        throw new System.NotImplementedException();
+        Globals.SpriteBatch.Draw(Texture, Position, Color.White);
     }
 
     public void Update()
+    {
+    }
+    
+    public void OnCollision(ICollidable collidable)
     {
         throw new System.NotImplementedException();
     }

@@ -1,8 +1,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Something.Enums;
 using Something.Managers;
-using Something.Model.Enums;
 
 namespace Something;
 

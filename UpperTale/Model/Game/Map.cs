@@ -1,25 +1,25 @@
 using Something.Generators;
-using Something.Model.Interfaces;
 
 namespace Something.Model.Game;
 
-public class Map : IDrawable, ICollidable
+public class Map : IDrawable
 {
     private readonly Texture2D _texture2D = Globals.Content.Load<Texture2D>("Textures/Maps/IslandMap_1");
     
     //private readonly Texture2D _floorTexture = Globals.Content.Load<Texture2D>("textures/map_floor");
     //private readonly Texture2D _wallTexture = Globals.Content.Load<Texture2D>("textures/map_wall");
-    
-    private readonly int _mapHeight = Config.MAP_TILES_HEIGTH;
-    private readonly int _mapWidth = Config.MAP_TILES_WIDTH;
-    private readonly int _tileSize = Config.TILE_SIZE;
+
+    private const int MapHeight = Config.MAP_TILES_HEIGTH;
+    private const int MapWidth = Config.MAP_TILES_WIDTH;
+
+    // private readonly int _tileSize = Config.TILE_SIZE;
     public Rectangle Hitbox { get; set; }
     private int[,] _map;
 
     public Map()
     {
-        var mapGenerator = new MapGenerator(_mapWidth, _mapHeight);
-        Hitbox = new Rectangle(Point.Zero, new Point(_mapWidth - 400, _mapHeight - 400));
+        var mapGenerator = new MapGenerator(MapWidth, MapHeight);
+        Hitbox = new Rectangle(Point.Zero, new Point(MapWidth - 400, MapHeight - 400));
         _map = mapGenerator.GenerateMap();
     }
     

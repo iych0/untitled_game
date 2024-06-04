@@ -1,4 +1,4 @@
-namespace Something.Model.Interfaces;
+namespace Something.Interfaces;
 
 public interface IDrawable
 {
