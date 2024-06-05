@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Timers;
-using Something.Extension;
+using Something.Extensions;
 using Something.Managers;
 
 namespace Something.Model.Menu;

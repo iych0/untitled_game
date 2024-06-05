@@ -1,4 +1,4 @@
-namespace Something.Extension;
+namespace Something.Extensions;
 
 public static class SpriteBatchExtension
 {

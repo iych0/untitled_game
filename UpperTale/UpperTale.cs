@@ -11,7 +11,6 @@ public class UpperTale : Game
     
     private readonly GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-    private GameManager _gameManager;
     private Matrix _transformMatrix;
     private const float Zoom = Config.SCREEN_ZOOM;
     
@@ -31,8 +30,7 @@ public class UpperTale : Game
         _transformMatrix = Matrix.CreateScale(Zoom);
 
         Globals.Content = Content;
-
-        _gameManager = new GameManager();
+        
         GameManager.LoadScreens();
         GameManager.InitGameFromMenuScreen();
 

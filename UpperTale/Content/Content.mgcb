@@ -68,7 +68,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/NPCs/Sprite-0001.png;Sprites/NPCs/Truffle_test.png
 
-#begin Sprites/Player/witch.png
+#begin Sprites/Player/witch_animation.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -78,7 +78,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/Player/witch.png
+/build:Sprites/Player/witch_animation.png
 
 #begin Textures/Backgrounds/IslandBackground.png
 /importer:TextureImporter

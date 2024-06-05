@@ -6,8 +6,10 @@ public abstract class StaticNpc : IEntity, IDrawable, ICollidable
 {
     protected Texture2D Texture;
     public Rectangle Hitbox { get; set; }
+    
+    public Vector2 Position { get; protected set; }
 
-    public void Draw()
+    public virtual void Draw()
     {
         Globals.SpriteBatch.Draw(Texture, Hitbox, Color.White);
     }

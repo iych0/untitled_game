@@ -3,7 +3,7 @@ using Something.View.Screens;
 
 namespace Something.Managers;
 
-public class GameManager
+public static class GameManager
 {
     private static Dictionary<string, Screen> _screens;
     private static Screen _currentScreen;

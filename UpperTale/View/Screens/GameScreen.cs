@@ -15,7 +15,7 @@ public class GameScreen : Screen
             new GameBackground(),
             new Map(),
             new Player(Vector2.Zero),
-            new Truffle(new Vector2(500, 500)),
+            new Truffle(new Vector2(200, 100)),
         };
         AddToCollisionManager();
     }
