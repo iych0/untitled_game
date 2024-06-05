@@ -44,7 +44,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/fox_running_spritesheet.png;Sprites/fox_running.png
 
-#begin Sprites/NPC/Sprite-0001.png
+#begin Sprites/NPCs/slime_spritesheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -54,43 +54,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/NPC/Sprite-0001.png;Sprites/NPC/NPC_test.png
-
-#begin Sprites/NPCs/huge_slime_test.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/NPCs/huge_slime_test.png
-
-#begin Sprites/NPCs/Sprite-0001.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/NPCs/Sprite-0001.png;Sprites/NPCs/Truffle_test.png
-
-#begin Sprites/NPCs/super_huge_slime_test.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/NPCs/super_huge_slime_test.png
+/build:Sprites/NPCs/slime_spritesheet.png
 
 #begin Sprites/Player/witch_animation.png
 /importer:TextureImporter
