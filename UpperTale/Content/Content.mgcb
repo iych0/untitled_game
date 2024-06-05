@@ -56,6 +56,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/NPC/Sprite-0001.png;Sprites/NPC/NPC_test.png
 
+#begin Sprites/NPCs/huge_slime_test.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/NPCs/huge_slime_test.png
+
 #begin Sprites/NPCs/Sprite-0001.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -67,6 +79,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/NPCs/Sprite-0001.png;Sprites/NPCs/Truffle_test.png
+
+#begin Sprites/NPCs/super_huge_slime_test.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/NPCs/super_huge_slime_test.png
 
 #begin Sprites/Player/witch_animation.png
 /importer:TextureImporter

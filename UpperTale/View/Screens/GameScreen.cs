@@ -14,8 +14,13 @@ public class GameScreen : Screen
         {
             new GameBackground(),
             new Map(),
-            new Player(Vector2.Zero),
-            new Truffle(new Vector2(200, 100)),
+            new Player(new Vector2(600, 600)),
+            new Slime(new Vector2(400, 400)),
+            new Slime(new Vector2(500, 400)),
+            new Slime(new Vector2(600, 400)),
+            new Slime(new Vector2(400, 500)),
+            new Slime(new Vector2(400, 600)),
+            new Slime(new Vector2(700, 700)),
         };
         AddToCollisionManager();
     }

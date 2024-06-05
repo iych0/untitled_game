@@ -6,6 +6,7 @@ public static class Config
     public const int SCREEN_WIDTH = 1280;
     public const int SCREEN_HEIGHT = 1024;
     public const float SCREEN_ZOOM = 1f;
+    public const int ANIMATION_FRAMERATE = 30;
     
     //Map config
     public const int MAP_TILES_WIDTH = 10;
@@ -22,4 +23,12 @@ public static class Config
     //QuadTree config
     public const int QT_MAX_OBJECTS = 25;
     public const int QT_MAX_LEVELS = 5;
+    
+    
+    //NPC configs
+    
+    //Slime
+    public const int SLIME_MOVEMENT_SPEED = 100;
+    public const int SLIME_SIZE = 1;
+    
 }
