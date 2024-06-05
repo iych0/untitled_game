@@ -32,18 +32,6 @@
 /processorParam:TextureFormat=Color
 /build:Helpers/red_texture.png
 
-#begin Sprites/fox_running_spritesheet.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/fox_running_spritesheet.png;Sprites/fox_running.png
-
 #begin Sprites/NPCs/slime_spritesheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -103,4 +91,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/Maps/map_island.png;Textures/Maps/IslandMap_1.png
+
+#begin Textures/Projectiles/projectile_slime.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Projectiles/projectile_slime.png;Textures/Projectiles/Projectile_Slime.png
 

@@ -1,9 +1,8 @@
-using System;
 using Something.Interfaces;
 using Something.Managers;
 using Something.Model.Game.NPCs;
 
-namespace Something.Model.Game;
+namespace Something.Model.Game.Player;
 
 public class Player : IEntity, IDrawable, ICollidable
 {
@@ -16,27 +15,27 @@ public class Player : IEntity, IDrawable, ICollidable
     private Vector2? _bounceVector;
     public Rectangle Hitbox { get; set; }
     
-    
-    private readonly Texture2D _hitboxTexture;
-
-    
     private readonly Animation _animation = new(Texture, FramesCount, 1, .05f, PlayerSizeMult);
     //private AnimationManager _animations = new();
 
-
+    //TODO Create projectile manager
     public Player(Vector2 position)
     {
         Position = position;
         Hitbox = new Rectangle(position.ToPoint(), PlayerSize);
+    }
+    
+    private static void FireProjectile()
+    {
         
-        _hitboxTexture = new Texture2D(Globals.Graphics.GraphicsDevice, 1, 1);
-        _hitboxTexture.SetData(new[] { Color.Red });
+        CollisionManager.AddCollidable(new DefaultProjectile(Position));
     }
 
     public void Update()
     {
         //TODO screen management in player class is not a good idea
         if (InputManager.Escape) GameManager.ChangeScreen("OptionsScreen");
+        if (InputManager.LeftClick) FireProjectile();
         if (InputManager.Moving)
         {
             if (_bounceVector is not null)
@@ -58,11 +57,11 @@ public class Player : IEntity, IDrawable, ICollidable
     public void Draw()
     {
         _animation.Draw(Position);
-        //Globals.SpriteBatch.Draw(_hitboxTexture, Hitbox, Color.White * 0.5f);
     }
     
     public void OnCollision(ICollidable collidable)
     {
+        if (collidable is Projectile) return;
         var npc = collidable as Npc;
         _bounceVector = CollisionManager.GetBounceVector(npc);
     }

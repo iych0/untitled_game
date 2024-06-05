@@ -19,7 +19,7 @@ public class MainMenu : IDrawable
         new MenuItem("no russian", () => GameManager.ChangeScreen("dont do it")),
     };
     private int _selectedItem;
-    private readonly Vector2 _position = Globals.ScreenCenter - new Vector2(100, 100);
+    private readonly Vector2 _position = Globals.ScreenCenter - new Vector2(100, 70);
 
     
     public MainMenu()

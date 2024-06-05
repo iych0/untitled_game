@@ -7,6 +7,7 @@ namespace Something.Model.Game.NPCs;
 
 public sealed class Slime : MovingNpc
 {
+    private readonly Point _spriteSize;
     private readonly Dictionary<Vector2, int> _animationKeys = new()
     {
         { new Vector2(0, 0), 1 }, 
@@ -22,14 +23,15 @@ public sealed class Slime : MovingNpc
 
     private readonly AnimationManager _animationManager = new();
     private Vector2 _direction;
-    private const int Frames = 1;
+    private const int Frames = 3;
     private Vector2? _bounceVector;
 
     public Slime(Vector2 position)
     {
         Position = position;
         Texture = Globals.Content.Load<Texture2D>("Sprites/NPCs/slime_spritesheet");
-        Hitbox = new Rectangle(position.ToPoint(), Texture.Bounds.Size);
+        _spriteSize = new Point(Texture.Width / 3, Texture.Height / 3);
+        Hitbox = new Rectangle(position.ToPoint(), _spriteSize);
         MovementSpeed = Config.SLIME_MOVEMENT_SPEED;
         foreach (var pair in _animationKeys)
             ConstructAnimation(pair.Key, pair.Value);
@@ -41,8 +43,8 @@ public sealed class Slime : MovingNpc
             Position += Vector2.Normalize((Vector2)_bounceVector) * MovementSpeed * Globals.TotalSeconds;
             _bounceVector = null;
         }
-        _direction = Vector2.Normalize(Player.Position - Position);
-        Hitbox = new Rectangle(Position.ToPoint(), Texture.Bounds.Size);
+        _direction = Vector2.Normalize(Player.Player.Position - Position);
+        Hitbox = new Rectangle(Position.ToPoint(), _spriteSize);
         Position += _direction * MovementSpeed * Globals.TotalSeconds;
         var roundedDirection = new Vector2((float)Math.Round(_direction.X), (float)Math.Round(_direction.Y));
         
@@ -52,6 +54,7 @@ public sealed class Slime : MovingNpc
     public override void Draw()
     {
         _animationManager.Draw(Position);
+        //Debug.DrawHitbox(Hitbox);
     }
     
     public override void OnCollision(ICollidable collidable)
@@ -66,7 +69,7 @@ public sealed class Slime : MovingNpc
             new Animation(Texture,
                 3,
                 3,
-                Config.ANIMATION_FRAMERATE / Frames,
+                Config.ANIMATION_CYCLE_TIME * 1f/ Frames,
                 new Vector2(Config.SLIME_SIZE), row));
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using Something.Interfaces;
 using Something.Model.Game;
 using Something.Model.Game.NPCs;
+using Something.Model.Game.Player;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace Something.Managers;
@@ -39,6 +40,8 @@ public class CollisionManager
     }
     
     public static void AddCollidable(ICollidable collidable) => Collidables.Add(collidable);
+    
+    public static void RemoveCollidable(ICollidable collidable) => Collidables.Remove(collidable);
 
     public static Vector2 GetBounceVector(Npc npc)
     {

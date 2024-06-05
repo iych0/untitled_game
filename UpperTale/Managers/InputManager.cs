@@ -5,12 +5,13 @@ namespace Something.Managers;
 
 public static class InputManager
 {
+    public static Vector2 MousePosition => Mouse.GetState().Position.ToVector2();
     public static Vector2 Direction { get; private set; } = Vector2.Zero;
     public static bool Moving => Direction != Vector2.Zero;
     public static bool Action => Keyboard.GetState().IsKeyDown(Keys.Space);
     public static bool Escape => Keyboard.GetState().IsKeyDown(Keys.Escape);
     public static bool Shift => Keyboard.GetState().IsKeyDown(Keys.LeftShift);
-
+    public static bool LeftClick => Mouse.GetState().LeftButton == ButtonState.Pressed;
     public static void Update()
     {
         Direction = Vector2.Zero;

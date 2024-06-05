@@ -31,6 +31,8 @@ public class UpperTale : Game
 
         Globals.Content = Content;
         
+        Debug.Init();
+        
         GameManager.LoadScreens();
         GameManager.InitGameFromMenuScreen();
 

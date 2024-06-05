@@ -2,33 +2,39 @@ namespace Something;
 
 public static class Config
 {
-    //Game config
-    public const int SCREEN_WIDTH = 1280;
-    public const int SCREEN_HEIGHT = 1024;
-    public const float SCREEN_ZOOM = 1f;
-    public const int ANIMATION_FRAMERATE = 30;
+    //Global configs
     
-    //Map config
-    public const int MAP_TILES_WIDTH = 10;
-    public const int MAP_TILES_HEIGTH = 10;
-    public const int TILE_SIZE = 64;
-
-    public const int MAP_PLAYABLE_ZONE_WIDTH = 800;
-    public const int MAP_PLAYABLE_ZONE_HEIGHT = 800;
+        //Game config
+        public const int SCREEN_WIDTH = 1280;
+        public const int SCREEN_HEIGHT = 1024;
+        public const float SCREEN_ZOOM = 1f;
+        public const int ANIMATION_CYCLE_TIME = 1;
+        
+        //Map config
+        public const int MAP_PLAYABLE_ZONE_WIDTH = 800;
+        public const int MAP_PLAYABLE_ZONE_HEIGHT = 800;
+        
+        //QuadTree config
+        public const int QT_MAX_OBJECTS = 25;
+        public const int QT_MAX_LEVELS = 5;
+        
     
-    //Player config
-    public const int PLAYER_SPEED = 200;
-    public const float PLAYER_SIZE = 1f;
+        
+    //Player configs
     
-    //QuadTree config
-    public const int QT_MAX_OBJECTS = 25;
-    public const int QT_MAX_LEVELS = 5;
-    
+        //Player
+        public const int PLAYER_SPEED = 200;
+        public const float PLAYER_SIZE = 1f;
+        
+        //DefaultProjectile
+        public const int DEFAULT_PROJECTILE_SPEED = 10;
+        public const float DEFAULT_PROJECTILE_LIFETIME = 3f;
+        
     
     //NPC configs
     
-    //Slime
-    public const int SLIME_MOVEMENT_SPEED = 100;
-    public const int SLIME_SIZE = 1;
+        //Slime
+        public const int SLIME_MOVEMENT_SPEED = 10;
+        public const int SLIME_SIZE = 1;
     
 }
