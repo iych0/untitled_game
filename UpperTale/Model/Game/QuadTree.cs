@@ -49,9 +49,8 @@ public class QuadTree
     private int GetIndex(ICollidable pRect)
     {
         var index = -1;
-        double verticalMidpoint = _bounds.X + _bounds.Width / 2;
-        double horizontalMidpoint = _bounds.Y + _bounds.Height / 2;
-
+        double verticalMidpoint = _bounds.X + _bounds.Width * 1f / 2;
+        double horizontalMidpoint = _bounds.Y + _bounds.Height * 1f / 2;
         var topQuadrant = pRect.Hitbox.Y < horizontalMidpoint && pRect.Hitbox.Y + pRect.Hitbox.Height < horizontalMidpoint;
         var bottomQuadrant = pRect.Hitbox.Y > horizontalMidpoint;
 

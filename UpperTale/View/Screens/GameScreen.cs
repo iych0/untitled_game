@@ -17,13 +17,6 @@ public class GameScreen : Screen
             new Map(),
             new Player(new Vector2(600, 600)),
             new Slime(new Vector2(500, 500)),
-            new Slime(new Vector2(600, 500)),
-            new Slime(new Vector2(700, 500)),
-            new Slime(new Vector2(500, 600)),
-            new Slime(new Vector2(700, 600)),
-            new Slime(new Vector2(500, 700)),
-            new Slime(new Vector2(600, 700)),
-            new Slime(new Vector2(700, 700)),
         };
         AddToCollisionManager();
     }

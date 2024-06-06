@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Something.Interfaces;
 using Something.View.Screens;
 
 namespace Something.Managers;
@@ -33,16 +34,24 @@ public static class GameManager
         InputManager.Update();
         CollisionManager.CheckCollision();
         _currentScreen.UpdateEntities();
+        ProjectileManager.Update();
     }
 
     public static void Draw()
     {
         _currentScreen.DrawEntities();
+        ProjectileManager.Draw();
     }
     
     public static void ChangeScreen(string screenName)
     {
         _currentScreen = _screens[screenName];
         _currentScreen.Initialize();
+    }
+    
+    public static void AnnihilateEntity(IEntity entity)
+    {
+        _currentScreen.AnnihilateEntity(entity);
+        CollisionManager.RemoveCollidable(entity as ICollidable);
     }
 }

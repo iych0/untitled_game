@@ -33,11 +33,13 @@ public sealed class Slime : MovingNpc
         _spriteSize = new Point(Texture.Width / 3, Texture.Height / 3);
         Hitbox = new Rectangle(position.ToPoint(), _spriteSize);
         MovementSpeed = Config.SLIME_MOVEMENT_SPEED;
+        Health = Config.SLIME_HEALTH;
         foreach (var pair in _animationKeys)
             ConstructAnimation(pair.Key, pair.Value);
     }
     public override void Update()
     {
+        base.Update();
         if (_bounceVector is not null)
         {
             Position += Vector2.Normalize((Vector2)_bounceVector) * MovementSpeed * Globals.TotalSeconds;
@@ -59,6 +61,11 @@ public sealed class Slime : MovingNpc
     
     public override void OnCollision(ICollidable collidable)
     {
+        if (collidable is Projectile projectile && projectile.Owner.GetType() == typeof(Player.Player))
+        {
+            Health -= projectile.Damage;
+            return;
+        }
         _bounceVector = collidable is not Npc npc ? CollisionManager.GetBounceVector(this) : 
             CollisionManager.GetBounceVector(this, npc);
     }

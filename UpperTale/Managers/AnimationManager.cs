@@ -33,4 +33,19 @@ public class AnimationManager
     {
         _anims[_lastKey].Draw(position);
     }
+    
+    
+    
+    public static Dictionary<Vector2, int> CreateAnimationsKeymap(int[] rowIndexes)
+    {
+        var keymap = new Dictionary<Vector2, int>();
+        for (var i = 0; i < rowIndexes.Length; i++)
+        {
+            if (rowIndexes[i] != 0)
+            // ReSharper disable once PossibleLossOfFraction
+                keymap.Add(new Vector2(i / 3 - 1, i % 3 - 1), rowIndexes[i]);
+        }
+
+        return keymap;
+    }
 }

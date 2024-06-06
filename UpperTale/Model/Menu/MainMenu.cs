@@ -12,8 +12,7 @@ public class MainMenu : IDrawable
     private readonly List<MenuItem> _menuItems = new()
     {
         //TODO fix actions
-        new MenuItem("New Game", () => GameManager.ChangeScreen("GameScreen")),
-        new MenuItem("Continue", () => GameManager.ChangeScreen("GameScreen")),
+        new MenuItem("Start Game", () => GameManager.ChangeScreen("GameScreen")),
         new MenuItem("Options", () => GameManager.ChangeScreen("OptionsScreen")),
         new MenuItem("Exit", () => GameManager.ChangeScreen("Exit")),
         new MenuItem("no russian", () => GameManager.ChangeScreen("dont do it")),

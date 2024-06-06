@@ -56,6 +56,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Player/witch_animation.png
 
+#begin Sprites/Player/witch_spritesheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Player/witch_spritesheet.png
+
 #begin Textures/Backgrounds/IslandBackground.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -80,7 +92,7 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Backgrounds/MenuBackground.png
 
-#begin Textures/Maps/map_island.png
+#begin Textures/Maps/IslandMap.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -90,7 +102,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Maps/map_island.png;Textures/Maps/IslandMap_1.png
+/build:Textures/Maps/IslandMap.png
 
 #begin Textures/Projectiles/projectile_slime.png
 /importer:TextureImporter

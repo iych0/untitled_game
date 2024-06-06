@@ -25,16 +25,22 @@ public static class Config
         //Player
         public const int PLAYER_SPEED = 200;
         public const float PLAYER_SIZE = 1f;
+        public const int PLAYER_DEFAULT_HEALTH = 100;
+        public const float PLAYER_PROJECTILE_COOLDOWN = 0.5f;
         
         //DefaultProjectile
         public const int DEFAULT_PROJECTILE_SPEED = 10;
-        public const float DEFAULT_PROJECTILE_LIFETIME = 3f;
+        public const float DEFAULT_PROJECTILE_TARGET_SPEED = 600;
+        public const float DEFAULT_PROJECTILE_ACCELERATION = 10f;
+        public const int DEFAULT_PROJECTILE_DAMAGE = 10;
+        public const float DEFAULT_PROJECTILE_LIFETIME = 4f;
         
     
     //NPC configs
     
         //Slime
-        public const int SLIME_MOVEMENT_SPEED = 10;
+        public const int SLIME_HEALTH = 25;
+        public const int SLIME_MOVEMENT_SPEED = 30;
         public const int SLIME_SIZE = 1;
     
 }
