@@ -2,7 +2,7 @@ namespace Something.Model.Game;
 
 public class Map : IDrawable
 {
-    private readonly Texture2D _texture2D = Globals.Content.Load<Texture2D>("Textures/Maps/IslandMap_1");
+    private readonly Texture2D _texture2D = Globals.Content.Load<Texture2D>("Textures/Maps/IslandMap");
     
     public void Draw()
     {

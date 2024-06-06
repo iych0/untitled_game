@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace Something.Managers;
@@ -12,6 +11,7 @@ public static class InputManager
     public static bool Escape => Keyboard.GetState().IsKeyDown(Keys.Escape);
     public static bool Shift => Keyboard.GetState().IsKeyDown(Keys.LeftShift);
     public static bool LeftClick => Mouse.GetState().LeftButton == ButtonState.Pressed;
+    
     public static void Update()
     {
         Direction = Vector2.Zero;
