@@ -31,7 +31,7 @@ public class MainMenu : IDrawable
     {
         for (int i = 0; i < _menuItems.Count; i++)
         {
-            var color = i == _selectedItem ? Color.Red : Color.White;
+            var color = i == _selectedItem ? Color.Red : Color.Black;
             Globals.SpriteBatch.Draw(_menuItems[i].Text, _position with{Y = _position.Y + 50 * i}, color);
         }
     }
