@@ -42,5 +42,6 @@ public static class Config
         public const int SLIME_HEALTH = 25;
         public const int SLIME_MOVEMENT_SPEED = 30;
         public const int SLIME_SIZE = 1;
-    
+        public const int SLIME_COLLISION_DAMAGE = 20;
+
 }

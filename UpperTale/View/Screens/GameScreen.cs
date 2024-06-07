@@ -17,6 +17,7 @@ public class GameScreen : Screen
         {
             new GameBackground(),
             new ActiveMap(),
+            new Obstacles(),
             new Player(new Vector2(600, 600)),
             new Slime(new Vector2(500, 500)),
             new GameHud()

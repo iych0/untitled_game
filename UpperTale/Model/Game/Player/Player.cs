@@ -1,5 +1,7 @@
+using System;
 using Something.Interfaces;
 using Something.Managers;
+using Something.Model.Game.Map;
 using Something.Model.Game.NPCs;
 
 namespace Something.Model.Game.Player;
@@ -15,6 +17,8 @@ public class Player : IEntity, IDrawable, ICollidable
     public static int Health { get; private set; } = Config.PLAYER_DEFAULT_HEALTH;
     private static float ProjectileTimer { get; set; } = Config.PLAYER_PROJECTILE_COOLDOWN;
     private Vector2? _bounceVector;
+    private const int BounceMult = 10;
+    private bool _isCollidableNpc;
     public Rectangle Hitbox { get; set; }
     
     //private readonly Animation _animation = new(Texture, Frames, 1, .05f, PlayerSizeMult);
@@ -47,8 +51,10 @@ public class Player : IEntity, IDrawable, ICollidable
         {
             if (_bounceVector is not null)
             {
-                Position -= Vector2.Normalize((Vector2)_bounceVector) * MovementSpeed * Globals.TotalSeconds;
+                var bounceForce = _isCollidableNpc? BounceMult : 1;
+                Position -= Vector2.Normalize((Vector2)_bounceVector) * MovementSpeed * Globals.TotalSeconds * bounceForce;
                 _bounceVector = null;
+                _isCollidableNpc = false;
             }
             
             Position += Vector2.Normalize(InputManager.Direction) * MovementSpeed * Globals.TotalSeconds;
@@ -66,13 +72,27 @@ public class Player : IEntity, IDrawable, ICollidable
     
     public void OnCollision(ICollidable collidable)
     {
-        if (collidable is Projectile projectile)
+        switch (collidable)
         {
-            if (projectile.Owner == this) return;
-            Health -= projectile.Damage;
-            return;
+            case Projectile projectile when projectile.Owner == this:
+                return;
+            case Projectile projectile:
+                Health -= projectile.Damage;
+                return;
+            case Border border:
+                var intersectionB = Rectangle.Intersect(Hitbox, border.Hitbox);
+                var collisionPointB = new Vector2(intersectionB.X, intersectionB.Y);
+                _bounceVector = CollisionManager.GetBounceVector(collisionPointB);
+                return;
+            case Obstacle obstacle:
+                var intersectionO = Rectangle.Intersect(Hitbox, obstacle.Hitbox);
+                var collisionPointO = new Vector2(intersectionO.X, intersectionO.Y);
+                _bounceVector = CollisionManager.GetBounceVector(collisionPointO);
+                return;
         }
         var npc = collidable as Npc;
+        Health -= npc!.CollisionDamage;
+        _isCollidableNpc = true;
         _bounceVector = CollisionManager.GetBounceVector(npc);
     }
 }

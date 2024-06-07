@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Something.Interfaces;
 using Something.Model.Game;
+using Something.Model.Game.Map;
 using Something.Model.Game.NPCs;
 using Something.Model.Game.Player;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
@@ -54,6 +55,15 @@ public class CollisionManager
     public static Vector2 GetBounceVector(Npc npc1, Npc npc2)
     {
         var collisionVector = npc1!.Position - npc2.Position;
+
+        if (Math.Abs(collisionVector.X) > Math.Abs(collisionVector.Y))
+            return collisionVector.X > 0 ? Vector2.UnitX : -Vector2.UnitX;
+        return collisionVector.Y > 0 ? Vector2.UnitY : -Vector2.UnitY;
+    }
+    
+    public static Vector2 GetBounceVector(Vector2 colPoint)
+    {
+        var collisionVector = colPoint - Player.Position;
 
         if (Math.Abs(collisionVector.X) > Math.Abs(collisionVector.Y))
             return collisionVector.X > 0 ? Vector2.UnitX : -Vector2.UnitX;

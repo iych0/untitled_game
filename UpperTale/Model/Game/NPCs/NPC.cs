@@ -7,6 +7,7 @@ public abstract class Npc : IEntity, IDrawable, ICollidable
 {
     protected Texture2D Texture;
     protected int Health;
+    public int CollisionDamage { get; protected init; }
     public Vector2 Position { get; protected set; }
     public Rectangle Hitbox { get; set; }
     public virtual void Draw()
