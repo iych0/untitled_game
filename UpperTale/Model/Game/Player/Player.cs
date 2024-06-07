@@ -1,4 +1,3 @@
-using System;
 using Something.Interfaces;
 using Something.Managers;
 using Something.Model.Game.NPCs;
@@ -13,7 +12,7 @@ public class Player : IEntity, IDrawable, ICollidable
     private static readonly Point PlayerSize = new(Texture.Bounds.Size.X / FramesX, Texture.Bounds.Size.Y / FramesY);
     private const int FramesX = 13;
     private const int FramesY = 3;
-    public int Health { get; private set; } = Config.PLAYER_DEFAULT_HEALTH;
+    public static int Health { get; private set; } = Config.PLAYER_DEFAULT_HEALTH;
     private static float ProjectileTimer { get; set; } = Config.PLAYER_PROJECTILE_COOLDOWN;
     private Vector2? _bounceVector;
     public Rectangle Hitbox { get; set; }
@@ -72,7 +71,7 @@ public class Player : IEntity, IDrawable, ICollidable
             if (projectile.Owner == this) return;
             Health -= projectile.Damage;
             return;
-        };
+        }
         var npc = collidable as Npc;
         _bounceVector = CollisionManager.GetBounceVector(npc);
     }

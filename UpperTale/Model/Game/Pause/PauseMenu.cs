@@ -1,28 +1,30 @@
-using System;
 using System.Collections.Generic;
 using System.Timers;
 using Something.Extensions;
 using Something.Managers;
+using Something.Model.Menu;
 
-namespace Something.Model.Menu;
+namespace Something.Model.Game.Pause;
 
-public class MainMenu : IDrawable
+public class PauseMenu : IDrawable
 {
     private readonly Timer _buttonCooldown = new(100);
     
     private readonly List<MenuItem> _menuItems = new()
     {
-        //TODO fix actions
-        new MenuItem("Start Game", () => GameManager.ChangeScreen("GameScreen")),
+        new MenuItem("Resume", GameManager.UnpauseGame),
         new MenuItem("Options", () => GameManager.ChangeScreen("OptionsScreen")),
-        new MenuItem("Exit", () => Environment.Exit(0)),
-        new MenuItem("no russian", () => GameManager.ChangeScreen("dont do it")),
+        new MenuItem("Main Menu", () =>
+        {
+            GameManager.ChangeScreen("MenuScreen");
+            GameManager.UnpauseGame();
+        }),
+        new MenuItem("Exit Game", GameManager.ExitGame),
     };
     private int _selectedItem;
     private readonly Vector2 _position = Globals.ScreenCenter - new Vector2(100, 70);
 
-    
-    public MainMenu()
+    public PauseMenu()
     {
         _buttonCooldown.Elapsed += (_, _) => _buttonCooldown.Stop();
     }
@@ -42,7 +44,6 @@ public class MainMenu : IDrawable
         if (InputManager.Action) _menuItems[_selectedItem].Action();
         if (InputManager.Moving && InputManager.Direction.X == 0)
         {
-            // ReSharper disable once CompareOfFloatsByEqualityOperator
             _selectedItem += InputManager.Direction.Y == -1 ? -1 : 1;
             _buttonCooldown.Start();
         }

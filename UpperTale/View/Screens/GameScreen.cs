@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Something.Interfaces;
 using Something.Managers;
 using Something.Model.Game;
+using Something.Model.Game.HUD;
+using Something.Model.Game.Map;
 using Something.Model.Game.NPCs;
 using Something.Model.Game.Player;
 
@@ -14,9 +16,10 @@ public class GameScreen : Screen
         Entities = new List<IDrawable>
         {
             new GameBackground(),
-            new Map(),
+            new ActiveMap(),
             new Player(new Vector2(600, 600)),
             new Slime(new Vector2(500, 500)),
+            new GameHud()
         };
         AddToCollisionManager();
     }
@@ -30,5 +33,12 @@ public class GameScreen : Screen
                 CollisionManager.AddCollidable(collidable);
             }
         }
+    }
+    
+    public override void UpdateEntities()
+    {
+        if (InputManager.Escape)
+            GameManager.PauseGame();
+        base.UpdateEntities();
     }
 }

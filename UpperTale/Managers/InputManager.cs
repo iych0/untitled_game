@@ -4,11 +4,31 @@ namespace Something.Managers;
 
 public static class InputManager
 {
+    private static bool _wasEscapePressed;
+    private static bool _wasActionPressed;
     public static Vector2 MousePosition => Mouse.GetState().Position.ToVector2();
     public static Vector2 Direction { get; private set; } = Vector2.Zero;
     public static bool Moving => Direction != Vector2.Zero;
-    public static bool Action => Keyboard.GetState().IsKeyDown(Keys.Space);
-    public static bool Escape => Keyboard.GetState().IsKeyDown(Keys.Escape);
+    public static bool Action
+    {
+        get
+        {
+            var isSpacePressed = Keyboard.GetState().IsKeyDown(Keys.Space);
+            var spaceJustPressed = isSpacePressed && !_wasActionPressed;
+            _wasActionPressed = isSpacePressed;
+            return spaceJustPressed;
+        }
+    }
+    public static bool Escape
+    {
+        get
+        {
+            var isEscapePressed = Keyboard.GetState().IsKeyDown(Keys.Escape);
+            var escapeJustPressed = isEscapePressed && !_wasEscapePressed;
+            _wasEscapePressed = isEscapePressed;
+            return escapeJustPressed;
+        }
+    }
     public static bool Shift => Keyboard.GetState().IsKeyDown(Keys.LeftShift);
     public static bool LeftClick => Mouse.GetState().LeftButton == ButtonState.Pressed;
     

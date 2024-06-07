@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Something.Interfaces;
 using Something.View.Screens;
@@ -8,6 +9,8 @@ public static class GameManager
 {
     private static Dictionary<string, Screen> _screens;
     private static Screen _currentScreen;
+    private static PauseScreen _pauseScreen;
+    private static bool _isPaused;
 
     private static readonly CollisionManager CollisionManager =
         new(new Rectangle(Point.Zero, new Point(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT)));
@@ -19,7 +22,8 @@ public static class GameManager
         {
             { "MenuScreen", new MenuScreen() },
             { "GameScreen", new GameScreen() },
-            { "OptionsScreen", new OptionsScreen() }
+            { "OptionsScreen", new OptionsScreen() },
+            { "PauseScreen", new PauseScreen() }
         };
     }
     
@@ -32,6 +36,11 @@ public static class GameManager
     public static void Update()
     {
         InputManager.Update();
+        if (_isPaused)
+        {
+            _pauseScreen.UpdateEntities();
+            return;
+        }
         CollisionManager.CheckCollision();
         _currentScreen.UpdateEntities();
         ProjectileManager.Update();
@@ -41,6 +50,7 @@ public static class GameManager
     {
         _currentScreen.DrawEntities();
         ProjectileManager.Draw();
+        if (_isPaused) _pauseScreen.DrawEntities();
     }
     
     public static void ChangeScreen(string screenName)
@@ -49,9 +59,24 @@ public static class GameManager
         _currentScreen.Initialize();
     }
     
+    public static void PauseGame()
+    {
+        _pauseScreen = new PauseScreen();
+        _pauseScreen.Initialize();
+        _isPaused = true;
+    }
+    
+    public static void UnpauseGame()
+    {
+        _isPaused = false;
+        _pauseScreen = null;
+    }
+    
     public static void AnnihilateEntity(IEntity entity)
     {
         _currentScreen.AnnihilateEntity(entity);
         CollisionManager.RemoveCollidable(entity as ICollidable);
     }
+    
+    public static void ExitGame() => Environment.Exit(0);
 }

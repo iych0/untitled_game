@@ -30,7 +30,6 @@ public class AnimationManager
     //TODO fix idle animations
     public void Update(object key)
     {
-        if ((key is Vector2 vector2 ? vector2 : default) == Vector2.Zero) showtiddies();
         if (_anims.TryGetValue(key, out var value))
         {
             value.Start();
@@ -64,10 +63,5 @@ public class AnimationManager
     public static Vector2 RoundDirection(Vector2 direction)
     {
         return new Vector2((float)Math.Round(direction.X), (float)Math.Round(direction.Y));
-    }
-
-    private void showtiddies()
-    {
-        Console.WriteLine("Show tiddies");
     }
 }

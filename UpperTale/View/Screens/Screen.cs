@@ -6,14 +6,14 @@ namespace Something.View.Screens;
 public abstract class Screen
 {
     protected List<IDrawable> Entities;
-    protected readonly List<IDrawable> EntitiesToDelete = new();
+    private readonly List<IDrawable> _entitiesToDelete = new();
     public abstract void Initialize();
-    public void UpdateEntities()
+    public virtual void UpdateEntities()
     {
-        foreach (var condemned in EntitiesToDelete)
+        foreach (var condemned in _entitiesToDelete)
             Entities.Remove(condemned);
         
-        EntitiesToDelete.Clear();
+        _entitiesToDelete.Clear();
         
         foreach (var entity in Entities)
             entity.Update();
@@ -26,5 +26,5 @@ public abstract class Screen
     }
     
     public void AnnihilateEntity(IEntity entity) =>
-        EntitiesToDelete.Add((IDrawable)entity);
+        _entitiesToDelete.Add((IDrawable)entity);
 }
